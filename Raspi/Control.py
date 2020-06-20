@@ -76,35 +76,62 @@ if __name__ == "__main__":
 
 
     while (True):
-        motorControl (Lower_BLeft_Actuator, 0xaa, 200)
-        motorControl (Lower_BRight_Actuator, 0xaa, 200)
-        confirm (Lower_BLeft_Actuator, Lower_BRight_Actuator)
-        print ("#1" , datetime.now())
-        time.sleep (2)
+
+        x =input ()
+
+        if (x == 'w'):
+            motorControl (Lower_BLeft_Actuator, 0xaa, 200)
+            motorControl (Lower_BRight_Actuator, 0xaa, 200)
+            print ("#w" , datetime.now())
+            time.sleep (1)
+        elif (x == 's'):
+            motorControl (Lower_BLeft_Actuator,0xbb, 200)
+            motorControl (Lower_BRight_Actuator, 0xbb, 200)
+            print ("#s" , datetime.now())
+            time.sleep (1)
+        elif (x == 'a'):
+            motorControl (Lower_BLeft_Actuator,0xbb, 200)
+            motorControl (Lower_BRight_Actuator, 0xaa, 200)
+            print ("#a" , datetime.now())
+            time.sleep (1)
+        elif (x == 'd'):
+            motorControl (Lower_BLeft_Actuator,0xaa, 200)
+            motorControl (Lower_BRight_Actuator, 0xbb, 200)
+            print ("#d" , datetime.now())
+            time.sleep (1)
+
+
+
+
+        # motorControl (Lower_BLeft_Actuator, 0xaa, 200)
+        # # motorControl (Lower_BRight_Actuator, 0xaa, 200)
+        # # confirm (Lower_BLeft_Actuator, Lower_BRight_Actuator)
+        # print ("#1" , datetime.now())
+        # time.sleep (2)
         
-        motorControl (Lower_BLeft_Actuator, 0xbb, 200)
-        motorControl (Lower_BRight_Actuator, 0xbb, 200)
-        confirm (Lower_BLeft_Actuator, Lower_BRight_Actuator)
-        print ("#2", datetime.now())
-        time.sleep (2)
+        # motorControl (Lower_BLeft_Actuator, 0xbb, 200)
+        # # motorControl (Lower_BRight_Actuator, 0xbb, 200)
+        # # confirm (Lower_BLeft_Actuator, Lower_BRight_Actuator)
+        # print ("#2", datetime.now())
+        # time.sleep (2)
         
-        motorControl (Lower_BLeft_Actuator, 0xbb, 200)
-        motorControl (Lower_BRight_Actuator, 0xaa, 200)
-        confirm (Lower_BLeft_Actuator, Lower_BRight_Actuator)
-        print ("#3", datetime.now())
-        time.sleep (2)
+        # motorControl (Lower_BLeft_Actuator, 0xbb, 200)
+        # # motorControl (Lower_BRight_Actuator, 0xaa, 200)
+        # # confirm (Lower_BLeft_Actuator, Lower_BRight_Actuator)
+        # print ("#3", datetime.now())
+        # time.sleep (2)
 
         
-        motorControl (Lower_BLeft_Actuator, 0xaa, 200)
-        motorControl (Lower_BRight_Actuator, 0xbb, 200)
-        confirm (Lower_BLeft_Actuator, Lower_BRight_Actuator)
-        print ("#4", datetime.now())
-        time.sleep (2)
+        # motorControl (Lower_BLeft_Actuator, 0xaa, 200)
+        # # motorControl (Lower_BRight_Actuator, 0xbb, 200)
+        # # confirm (Lower_BLeft_Actuator, Lower_BRight_Actuator)
+        # print ("#4", datetime.now())
+        # time.sleep (2)
         
-        motorControl (Lower_BLeft_Actuator, 0x00, 200)
-        motorControl (Lower_BRight_Actuator, 0x00, 200)
-        confirm (Lower_BLeft_Actuator, Lower_BRight_Actuator)
-        print ("#5", datetime.now())
-        time.sleep (2)
+        # motorControl (Lower_BLeft_Actuator, 0x00, 200)
+        # # motorControl (Lower_BRight_Actuator, 0x00, 200)
+        # # confirm (Lower_BLeft_Actuator, Lower_BRight_Actuator)
+        # print ("#5", datetime.now())
+        # time.sleep (2)
 
     
