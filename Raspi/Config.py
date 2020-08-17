@@ -42,59 +42,50 @@ def detectedModule (data):
     return actuatorID, sensorID
 
 def printPos ():
-    print ("--------------------------")
-    print ("|   TLeft       TRight   |")
-    print ("|                        |")
-    print ("|         Center         |")
-    print ("|                        |")
-    print ("|   BLeft       BRight   |")
-    print ("--------------------------")
+    print ("    ------------------------")
+    print ("   / Joint 2/ Joint 3/      \"")
+    print (" ------------------- \Joint 4\"")
+    print (" / Joint /            --------- ")
+    print ("/   1   /             \ \    \ \"")
+    print ("-------                \ __\ \__\"")
+    print ("| Base |                 Gripper")
+    print ("-------")
 
 def setModuleName ():
-    print ("Choose the side: ")
-    print ("1. Upper")
-    print ("2. Lower")
-    while (True):
-        side = input()
-        if (side == '1'):
-            name = "Upper"
-            break
-        elif (side == '2'):
-            name = "Lower"
-            break
-        else:
-            print ("Invalid assign")
-
     printPos ()
     print ("Assign module position: ")
-    print ("1. TLeft")
-    print ("2. TRight")
-    print ("3. Center")
-    print ("4. BLeft")
-    print ("5. BRight")
+    print ("1. Base")
+    print ("2. Joint 1")
+    print ("3. Joint 2")
+    print ("4. Joint 3")
+    print ("5. Joint 4")
+    print ("6. Gripper")
     while (True):
         pos = input()
         if (pos == '1'):
-            name = name + str("_TLeft")
+            name = str("Base")
             break
         elif (pos == '2'):
-            name = name + str("_TRight")
+            name = str("Joint1")
             break
         elif (pos == '3'):
-            name = name + str("_Center")
+            name = str("Joint2")
             break
         elif (pos == '4'):
-            name = name + str("_BLeft")
+            name = str("Joint3")
             break
         elif (pos == '5'):
-            name = name + str("_BRight")
+            name = str("Joint4")
+            break
+        elif (pos == '6'):
+            name = str("Gripper")
             break
         else:
             print ("Invalid assign")
     
     return name
 
-def assignModule(str, moduleID, assignID):
+def assignModule1(str, moduleID, assignID):
     while (True):
         print ("Assign name for module ", str, hex(moduleID[0]))
         name = setModuleName ()
@@ -104,7 +95,23 @@ def assignModule(str, moduleID, assignID):
         if (len(moduleID) == 0):
             break
 
-    
+def assignModule(str, moduleID, assignID):
+    while (True):
+        existFlag = False
+        print ("Assign name for module ", str, hex(moduleID[0]))
+        name = setModuleName ()
+        name = name + "_" + str
+        for i in range (len(assignID)):
+            print ("name ", assignID[i][0])
+            if (name == assignID[i][0]):
+                existFlag = True
+        if (existFlag == False):
+            assignID.append ([name, moduleID[0]])
+            moduleID.remove (moduleID[0])
+            if (len(moduleID) == 0):
+                break
+        else:
+            print ("This part have been occupied. Please choose another one")
 
 
 if __name__ == "__main__":
@@ -117,8 +124,8 @@ if __name__ == "__main__":
 
     actuatorID, sensorID = detectedModule (data)
 
-    assignModule("Actuator", actuatorID, assignID)
-    assignModule("Sensor", sensorID, assignID)
+    assignModule("Servo", actuatorID, assignID)
+    #assignModule("Sensor", sensorID, assignID)
 
     f = open ('assign.csv', 'w')
 

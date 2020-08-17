@@ -1,3 +1,5 @@
-Lower_BLeft_Actuator;417
-Lower_BRight_Actuator;418
-Lower_Center_Sensor;497
+Base_Servo;417
+Joint1_Servo;418
+Joint2_Servo;419
+Joint3_Servo;420
+Joint4_Servo;421

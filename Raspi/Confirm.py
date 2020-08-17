@@ -47,11 +47,11 @@ def classifier (msg):
     subID = 0
     mType = 0
     if (msg.arbitration_id == 0x1A0):
-        print ("Actuator module detected !!!")
+        print ("Module detected !!!")
         subID = 0x1A0
         mType = 'A'
     elif (msg.arbitration_id == 0x1F0):
-        print ("Sensor module detected !!!")
+        #print ("Sensor module detected !!!")
         subID = 0x1F0
         mType = 'S'
     return subID, mType
@@ -132,6 +132,7 @@ if __name__ == "__main__":
         actuatorID = verifyID (actuatorID)
         sensorID = verifyID (sensorID)
 
-        aID = printAvailableID ("Available Actuator: ", actuatorID)
-        sID = printAvailableID ("Available Sensor: ", sensorID)
+        aID = printAvailableID ("Available Module: ", actuatorID)
+        #sID = printAvailableID ("Available Sensor: ", sensorID)
+        sID = printAvailableID (" ", sensorID)
         wriToFile (aID, sID)
